@@ -1,0 +1,87 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace GlassCalc.Models
+{
+    public class VidroRepository
+    {
+        public List<Vidro> Vidros { get; set; } = new List<Vidro> {
+new Vidro{  Id=1    ,   Material="Madeira"  ,   IsDoubleGlass=false ,   WinType="Todas" ,   AirDimension=0  ,   IsLowE=false    ,   Uw=5.1  ,   OclusionType="Cortina"  ,   Uwdn=4.3    },
+new Vidro{  Id=2    ,   Material="Madeira"  ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=6  ,   IsLowE=false    ,   Uw=3.3  ,   OclusionType="Cortina"  ,   Uwdn=2.9    },
+new Vidro{  Id=3    ,   Material="Madeira"  ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=16 ,   IsLowE=false    ,   Uw=2.8  ,   OclusionType="Cortina"  ,   Uwdn=2.5    },
+new Vidro{  Id=4    ,   Material="Madeira"  ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=16 ,   IsLowE=true ,   Uw=2.6  ,   OclusionType="Cortina"  ,   Uwdn=2.4    },
+new Vidro{  Id=6    ,   Material="Madeira"  ,   IsDoubleGlass=false ,   WinType="Todas" ,   AirDimension=0  ,   IsLowE=false    ,   Uw=5.1  ,   OclusionType="PermElev" ,   Uwdn=3.9    },
+new Vidro{  Id=7    ,   Material="Madeira"  ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=6  ,   IsLowE=false    ,   Uw=3.3  ,   OclusionType="PermElev" ,   Uwdn=2.8    },
+new Vidro{  Id=8    ,   Material="Madeira"  ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=16 ,   IsLowE=false    ,   Uw=2.8  ,   OclusionType="PermElev" ,   Uwdn=2.4    },
+new Vidro{  Id=9    ,   Material="Madeira"  ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=16 ,   IsLowE=true ,   Uw=2.6  ,   OclusionType="PermElev" ,   Uwdn=2.3    },
+new Vidro{  Id=11   ,   Material="Madeira"  ,   IsDoubleGlass=false ,   WinType="Todas" ,   AirDimension=0  ,   IsLowE=false    ,   Uw=5.1  ,   OclusionType="PermBaixa"    ,   Uwdn=3.4    },
+new Vidro{  Id=12   ,   Material="Madeira"  ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=6  ,   IsLowE=false    ,   Uw=3.3  ,   OclusionType="PermBaixa"    ,   Uwdn=2.5    },
+new Vidro{  Id=13   ,   Material="Madeira"  ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=16 ,   IsLowE=false    ,   Uw=2.8  ,   OclusionType="PermBaixa"    ,   Uwdn=2.2    },
+new Vidro{  Id=14   ,   Material="Madeira"  ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=16 ,   IsLowE=true ,   Uw=2.6  ,   OclusionType="PermBaixa"    ,   Uwdn=2  },
+new Vidro{  Id=16   ,   Material="Metal"    ,   IsDoubleGlass=false ,   WinType="Fixa"  ,   AirDimension=0  ,   IsLowE=false    ,   Uw=6    ,   OclusionType="Cortina"  ,   Uwdn=4.9    },
+new Vidro{  Id=17   ,   Material="Metal"    ,   IsDoubleGlass=false ,   WinType="Giratoria" ,   AirDimension=0  ,   IsLowE=false    ,   Uw=6.2  ,   OclusionType="Cortina"  ,   Uwdn=5  },
+new Vidro{  Id=18   ,   Material="Metal"    ,   IsDoubleGlass=false ,   WinType="Correr"    ,   AirDimension=0  ,   IsLowE=false    ,   Uw=6.5  ,   OclusionType="Cortina"  ,   Uwdn=5.2    },
+new Vidro{  Id=19   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Fixa"  ,   AirDimension=6  ,   IsLowE=false    ,   Uw=3.9  ,   OclusionType="Cortina"  ,   Uwdn=3.4    },
+new Vidro{  Id=20   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Fixa"  ,   AirDimension=16 ,   IsLowE=false    ,   Uw=3.5  ,   OclusionType="Cortina"  ,   Uwdn=3.1    },
+new Vidro{  Id=21   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Fixa"  ,   AirDimension=16 ,   IsLowE=true ,   Uw=3.1  ,   OclusionType="Cortina"  ,   Uwdn=2.8    },
+new Vidro{  Id=22   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Giratoria" ,   AirDimension=6  ,   IsLowE=false    ,   Uw=4.3  ,   OclusionType="Cortina"  ,   Uwdn=3.7    },
+new Vidro{  Id=23   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Giratoria" ,   AirDimension=16 ,   IsLowE=false    ,   Uw=3.8  ,   OclusionType="Cortina"  ,   Uwdn=3.3    },
+new Vidro{  Id=24   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Giratoria" ,   AirDimension=16 ,   IsLowE=true ,   Uw=3.6  ,   OclusionType="Cortina"  ,   Uwdn=3.2    },
+new Vidro{  Id=25   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Correr"    ,   AirDimension=6  ,   IsLowE=false    ,   Uw=4.5  ,   OclusionType="Cortina"  ,   Uwdn=3.9    },
+new Vidro{  Id=26   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Correr"    ,   AirDimension=16 ,   IsLowE=false    ,   Uw=4    ,   OclusionType="Cortina"  ,   Uwdn=3.5    },
+new Vidro{  Id=27   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Correr"    ,   AirDimension=16 ,   IsLowE=true ,   Uw=3.7  ,   OclusionType="Cortina"  ,   Uwdn=3.3    },
+new Vidro{  Id=28   ,   Material="Metal"    ,   IsDoubleGlass=false ,   WinType="Fixa"  ,   AirDimension=0  ,   IsLowE=false    ,   Uw=6    ,   OclusionType="PermElev" ,   Uwdn=4.5    },
+new Vidro{  Id=29   ,   Material="Metal"    ,   IsDoubleGlass=false ,   WinType="Giratoria" ,   AirDimension=0  ,   IsLowE=false    ,   Uw=6.2  ,   OclusionType="PermElev" ,   Uwdn=4.6    },
+new Vidro{  Id=30   ,   Material="Metal"    ,   IsDoubleGlass=false ,   WinType="Correr"    ,   AirDimension=0  ,   IsLowE=false    ,   Uw=6.5  ,   OclusionType="PermElev" ,   Uwdn=4.8    },
+new Vidro{  Id=31   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Fixa"  ,   AirDimension=6  ,   IsLowE=false    ,   Uw=3.9  ,   OclusionType="PermElev" ,   Uwdn=3.2    },
+new Vidro{  Id=32   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Fixa"  ,   AirDimension=16 ,   IsLowE=false    ,   Uw=3.5  ,   OclusionType="PermElev" ,   Uwdn=2.9    },
+new Vidro{  Id=33   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Fixa"  ,   AirDimension=16 ,   IsLowE=true ,   Uw=3.1  ,   OclusionType="PermElev" ,   Uwdn=2.6    },
+new Vidro{  Id=34   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Giratoria" ,   AirDimension=6  ,   IsLowE=false    ,   Uw=4.3  ,   OclusionType="PermElev" ,   Uwdn=3.4    },
+new Vidro{  Id=35   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Giratoria" ,   AirDimension=16 ,   IsLowE=false    ,   Uw=3.8  ,   OclusionType="PermElev" ,   Uwdn=3.1    },
+new Vidro{  Id=36   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Giratoria" ,   AirDimension=16 ,   IsLowE=true ,   Uw=3.6  ,   OclusionType="PermElev" ,   Uwdn=3  },
+new Vidro{  Id=37   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Correr"    ,   AirDimension=6  ,   IsLowE=false    ,   Uw=4.5  ,   OclusionType="PermElev" ,   Uwdn=3.6    },
+new Vidro{  Id=38   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Correr"    ,   AirDimension=16 ,   IsLowE=false    ,   Uw=4    ,   OclusionType="PermElev" ,   Uwdn=3.3    },
+new Vidro{  Id=39   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Correr"    ,   AirDimension=16 ,   IsLowE=true ,   Uw=3.7  ,   OclusionType="PermElev" ,   Uwdn=3.1    },
+new Vidro{  Id=40   ,   Material="Metal"    ,   IsDoubleGlass=false ,   WinType="Fixa"  ,   AirDimension=0  ,   IsLowE=false    ,   Uw=6    ,   OclusionType="PermBaixa"    ,   Uwdn=3.8    },
+new Vidro{  Id=41   ,   Material="Metal"    ,   IsDoubleGlass=false ,   WinType="Giratoria" ,   AirDimension=0  ,   IsLowE=false    ,   Uw=6.2  ,   OclusionType="PermBaixa"    ,   Uwdn=3.9    },
+new Vidro{  Id=42   ,   Material="Metal"    ,   IsDoubleGlass=false ,   WinType="Correr"    ,   AirDimension=0  ,   IsLowE=false    ,   Uw=6.5  ,   OclusionType="PermBaixa"    ,   Uwdn=4.1    },
+new Vidro{  Id=43   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Fixa"  ,   AirDimension=6  ,   IsLowE=false    ,   Uw=3.9  ,   OclusionType="PermBaixa"    ,   Uwdn=2.8    },
+new Vidro{  Id=44   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Fixa"  ,   AirDimension=16 ,   IsLowE=false    ,   Uw=3.5  ,   OclusionType="PermBaixa"    ,   Uwdn=2.6    },
+new Vidro{  Id=45   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Fixa"  ,   AirDimension=16 ,   IsLowE=true ,   Uw=3.1  ,   OclusionType="PermBaixa"    ,   Uwdn=2.3    },
+new Vidro{  Id=46   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Giratoria" ,   AirDimension=6  ,   IsLowE=false    ,   Uw=4.3  ,   OclusionType="PermBaixa"    ,   Uwdn=3  },
+new Vidro{  Id=47   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Giratoria" ,   AirDimension=16 ,   IsLowE=false    ,   Uw=3.8  ,   OclusionType="PermBaixa"    ,   Uwdn=2.7    },
+new Vidro{  Id=48   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Giratoria" ,   AirDimension=16 ,   IsLowE=true ,   Uw=3.6  ,   OclusionType="PermBaixa"    ,   Uwdn=2.6    },
+new Vidro{  Id=49   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Correr"    ,   AirDimension=6  ,   IsLowE=false    ,   Uw=4.5  ,   OclusionType="PermBaixa"    ,   Uwdn=3.1    },
+new Vidro{  Id=50   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Correr"    ,   AirDimension=16 ,   IsLowE=false    ,   Uw=4    ,   OclusionType="PermBaixa"    ,   Uwdn=2.9    },
+new Vidro{  Id=51   ,   Material="Metal"    ,   IsDoubleGlass=true  ,   WinType="Correr"    ,   AirDimension=16 ,   IsLowE=true ,   Uw=3.7  ,   OclusionType="PermBaixa"    ,   Uwdn=2.7    },
+new Vidro{  Id=52   ,   Material="MetalCorte"   ,   IsDoubleGlass=false ,   WinType="Todas" ,   AirDimension=0  ,   IsLowE=false    ,   Uw=5.4  ,   OclusionType="Cortina"  ,   Uwdn=4.5    },
+new Vidro{  Id=53   ,   Material="MetalCorte"   ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=6  ,   IsLowE=false    ,   Uw=3.7  ,   OclusionType="Cortina"  ,   Uwdn=3.3    },
+new Vidro{  Id=54   ,   Material="MetalCorte"   ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=16 ,   IsLowE=false    ,   Uw=3.3  ,   OclusionType="Cortina"  ,   Uwdn=2.9    },
+new Vidro{  Id=55   ,   Material="MetalCorte"   ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=16 ,   IsLowE=true ,   Uw=3    ,   OclusionType="Cortina"  ,   Uwdn=2.7    },
+new Vidro{  Id=56   ,   Material="MetalCorte"   ,   IsDoubleGlass=false ,   WinType="Todas" ,   AirDimension=0  ,   IsLowE=false    ,   Uw=5.4  ,   OclusionType="PermElev" ,   Uwdn=4.1    },
+new Vidro{  Id=57   ,   Material="MetalCorte"   ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=6  ,   IsLowE=false    ,   Uw=3.7  ,   OclusionType="PermElev" ,   Uwdn=3.1    },
+new Vidro{  Id=58   ,   Material="MetalCorte"   ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=16 ,   IsLowE=false    ,   Uw=3.3  ,   OclusionType="PermElev" ,   Uwdn=2.8    },
+new Vidro{  Id=59   ,   Material="MetalCorte"   ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=16 ,   IsLowE=true ,   Uw=3    ,   OclusionType="PermElev" ,   Uwdn=2.6    },
+new Vidro{  Id=60   ,   Material="MetalCorte"   ,   IsDoubleGlass=false ,   WinType="Todas" ,   AirDimension=0  ,   IsLowE=false    ,   Uw=5.4  ,   OclusionType="PermBaixa"    ,   Uwdn=3.6    },
+new Vidro{  Id=61   ,   Material="MetalCorte"   ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=6  ,   IsLowE=false    ,   Uw=3.7  ,   OclusionType="PermBaixa"    ,   Uwdn=2.7    },
+new Vidro{  Id=62   ,   Material="MetalCorte"   ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=16 ,   IsLowE=false    ,   Uw=3.3  ,   OclusionType="PermBaixa"    ,   Uwdn=2.5    },
+new Vidro{  Id=63   ,   Material="MetalCorte"   ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=16 ,   IsLowE=true ,   Uw=3    ,   OclusionType="PermBaixa"    ,   Uwdn=2.3    },
+new Vidro{  Id=64   ,   Material="Pvc"  ,   IsDoubleGlass=false ,   WinType="Todas" ,   AirDimension=0  ,   IsLowE=false    ,   Uw=4.9  ,   OclusionType="Cortina"  ,   Uwdn=4.1    },
+new Vidro{  Id=65   ,   Material="Pvc"  ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=6  ,   IsLowE=false    ,   Uw=3.2  ,   OclusionType="Cortina"  ,   Uwdn=2.9    },
+new Vidro{  Id=66   ,   Material="Pvc"  ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=16 ,   IsLowE=false    ,   Uw=2.7  ,   OclusionType="Cortina"  ,   Uwdn=2.5    },
+new Vidro{  Id=67   ,   Material="Pvc"  ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=16 ,   IsLowE=true ,   Uw=2.5  ,   OclusionType="Cortina"  ,   Uwdn=2.3    },
+new Vidro{  Id=68   ,   Material="Pvc"  ,   IsDoubleGlass=false ,   WinType="Todas" ,   AirDimension=0  ,   IsLowE=false    ,   Uw=4.9  ,   OclusionType="PermElev" ,   Uwdn=3.8    },
+new Vidro{  Id=69   ,   Material="Pvc"  ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=6  ,   IsLowE=false    ,   Uw=3.2  ,   OclusionType="PermElev" ,   Uwdn=2.7    },
+new Vidro{  Id=70   ,   Material="Pvc"  ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=16 ,   IsLowE=false    ,   Uw=2.7  ,   OclusionType="PermElev" ,   Uwdn=2.3    },
+new Vidro{  Id=71   ,   Material="Pvc"  ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=16 ,   IsLowE=true ,   Uw=2.5  ,   OclusionType="PermElev" ,   Uwdn=2.2    },
+new Vidro{  Id=72   ,   Material="Pvc"  ,   IsDoubleGlass=false ,   WinType="Todas" ,   AirDimension=0  ,   IsLowE=false    ,   Uw=4.9  ,   OclusionType="PermBaixa"    ,   Uwdn=3.3    },
+new Vidro{  Id=73   ,   Material="Pvc"  ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=6  ,   IsLowE=false    ,   Uw=3.2  ,   OclusionType="PermBaixa"    ,   Uwdn=2.4    },
+new Vidro{  Id=74   ,   Material="Pvc"  ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=16 ,   IsLowE=false    ,   Uw=2.7  ,   OclusionType="PermBaixa"    ,   Uwdn=2.1    },
+new Vidro{  Id=75   ,   Material="Pvc"  ,   IsDoubleGlass=true  ,   WinType="Todas" ,   AirDimension=16 ,   IsLowE=true ,   Uw=2.5  ,   OclusionType="PermBaixa"    ,   Uwdn=2  }
+
+
+};
+    }
+}

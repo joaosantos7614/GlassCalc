@@ -1,0 +1,70 @@
+﻿@model VidroCalc
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">GlassCalc</h1>
+    <p>Calculate window pane Uw and Uwdn using the ITE50 tables method</p>
+    <hr />
+</div>
+<div>
+    <form method="post">
+        <label for="Material">Material:</label>
+        <select id="Material" name="Material">
+            <option value="Madeira">Madeira</option>
+            <option value="Metal">Metal</option>
+            <option value="MetalCorte">Metal com Corte Térmico</option>
+            <option value="Pvc">PVC</option>
+        </select><br>
+
+        <label>Tipo de Abertura:</label>
+        <input type="radio" id="fixa" name="Abertura" value="Fixa" required>
+        <label for="fixa">Fixa</label>
+        <input type="radio" id="duplo" name="Abertura" value="Giratoria" required>
+        <label for="giratoria">Giratória</label>
+        <input type="radio" id="duplo" name="Abertura" value="Correr" required>
+        <label for="correr">Correr</label><br>
+
+        <label>Tipo de Vidro:</label>
+        <input type="radio" id="simples" name="IsDouble" value="false">
+        <label for="simples">Simples</label>
+        <input type="radio" id="duplo" name="IsDouble" value="true" required>
+        <label for="duplo">Duplo</label><br>
+
+        <label for="vol">Caixa de Ar (6 a 16mm):</label>
+        <input type="range" id="ar" name="CaixaAr" min="6" max="16">
+        <label for="vol" id="arValue">0</label> <br>
+
+        <label for="IsLowE">Vidro de baixa Emissividade?</label>
+        <input type="checkbox" id="IsLowE" name="IsLowE" value="true"><br>
+
+        <label for="Oclusao">Oclusão Nocturna:</label>
+        <select id="Oclusao" name="Oclusao">
+            <option value="Nenhuma">Não existente</option>
+            <option value="Cortina">Cortina Interior Opaca</option>
+            <option value="PermElev">Com Permeabilidade Elevada</option>
+            <option value="PermBaixa">Com Permeabilidade Baixa</option>
+        </select><br>
+
+        <input type="submit">
+
+    </form>
+</div>
+<hr />
+<div>
+    @if (Model != null)
+    {
+        <p>Vidro exists</p>
+        <p>Caixa de ar:@Model.GetCaixaAr() mm</p>
+        <p>Uw=@Model.GetUw()</p>
+        <p>Uwdn=@Model.GetUwdn()</p>
+        <p>Caixa de ar:@Model.GetCaixaAr() mm</p>
+    }
+    else
+    {
+        <p>Vidro is null</p>
+    }
+</div>
+
