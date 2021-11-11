@@ -25,10 +25,20 @@ namespace GlassCalc.Controllers
         [HttpPost]
         public IActionResult Index(VidroCalc vidrocalc)
         {
-            vidrocalc.ValidateInputs(); // validates the inputs before processing
+            vidrocalc.ValidateInputs();
             return View(vidrocalc);
         }
-
+        [HttpGet]
+        public IActionResult IndexPT()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult IndexPT(VidroCalc vidrocalc)
+        {
+            vidrocalc.ValidateInputs();
+            return View(vidrocalc);
+        }
         public IActionResult About()
         {
             return View();

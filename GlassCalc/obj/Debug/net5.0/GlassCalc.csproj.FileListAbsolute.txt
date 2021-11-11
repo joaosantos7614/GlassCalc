@@ -38,3 +38,4 @@ C:\Users\João\Documents\Code\GlassCalc\GlassCalc\obj\Debug\net5.0\GlassCalc.gen
 C:\Users\João\Documents\Code\GlassCalc\GlassCalc\obj\Debug\net5.0\GlassCalc.csproj.CopyComplete
 C:\Users\João\Documents\Code\GlassCalc\GlassCalc\obj\Debug\net5.0\Razor\Views\Home\About.cshtml.g.cs
 C:\Users\João\Documents\Code\GlassCalc\GlassCalc\obj\Debug\net5.0\GlassCalc.csprojAssemblyReference.cache
+C:\Users\João\Documents\Code\GlassCalc\GlassCalc\obj\Debug\net5.0\Razor\Views\Home\IndexPT.cshtml.g.cs
