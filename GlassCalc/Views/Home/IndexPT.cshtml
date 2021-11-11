@@ -3,133 +3,142 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<div class="">
-    <div class="text-center">
-        <img src="~/img/glasscalc.png" class="img-fluid" alt="GlassCalc">
-        @*<h1 class="display-4">GlassCalc</h1>*@
-        @*<p>Calculate window pane Uw and Uwdn using the ITE50 tables method</p>*@
-        <h6>Cálculo do coeficiente de transmissão térmica de um vão envidraçado</h6>
-        <p class="text-muted">(Uw e Uwdn, usando LINQ e o método das tabelas do ITE50)</p>
-        <hr />
-    </div>
-    <div class="">
-        <h4>Dados da Janela</h4>
+<div class="text-center">
+    <img src="~/img/glasscalc.png" class="img-fluid" alt="GlassCalc">
+    @*<h1 class="display-4">GlassCalc</h1>*@
+    @*<p>Calculate window pane Uw and Uwdn using the ITE50 tables method</p>*@
+    <h6>Cálculo do coeficiente de transmissão térmica de um vão envidraçado</h6>
+    <p class="text-muted">(Uw e Uwdn, usando LINQ e o método das tabelas do ITE50)</p>
     
-        <form asp-controller="Home" asp-action="IndexPT" method="post">
-            <label asp-for="Material">Material:</label>
-            <select asp-for="Material">
-                <option value="Madeira">Madeira</option>
-                <option value="Metal">Metal</option>
-                <option value="MetalCorte">Metal com Corte Térmico</option>
-                <option value="Pvc">PVC</option>
-            </select><br>
-
-            <label>Tipo de Abertura:</label>
-            <input type="radio" asp-for="Abertura" value="Fixa" required>
-            <label for="fixa">Fixa</label>
-            <input type="radio" asp-for="Abertura" value="Giratoria" required>
-            <label for="giratoria">Giratória</label>
-            <input type="radio" asp-for="Abertura" value="Correr" required>
-            <label for="correr">Correr</label><br>
-
-            <label>Tipo de Vidro:</label>
-            <input type="radio" asp-for="IsDouble" value="false">
-            <label for="simples">Simples</label>
-            <input type="radio" asp-for="IsDouble" value="true" required>
-            <label for="duplo">Duplo</label><br>
-
-            <label for="CaixaAr">Caixa de Ar (6 a 16mm):</label>
-            <input asp-for="CaixaAr" type="range" id="ar" name="CaixaAr" min="6" max="16">
-            <label for="CaixaAr" id="arValue"></label> <br>
-
-            <label asp-for="IsLowE">Vidro de baixa Emissividade?</label>
-            <input type="checkbox" asp-for="IsLowE"><br>
-
-            <label asp-for="Oclusao">Oclusão Nocturna:</label>
-            <select asp-for="Oclusao">
-                <option value="Nenhuma">Não existente</option>
-                <option value="Cortina">Cortina Interior Opaca</option>
-                <option value="PermElev">Exterior c/ Permeabilidade Elevada</option>
-                <option value="PermBaixa">Exterior c/ Permeabilidade Baixa</option>
-            </select><br>
-
-            <input type="submit" value="Submeter">
-
-        </form>
+</div>
+<div class="row">
+    <div class="col-md-4">
 
     </div>
-    <hr />
-    <div class="">
-        @if (Model != null)
-        {
-            <h4>Resultados</h4>
-            <h6>Uw=@Model.GetU()[0] W/(m&sup2;.&deg;C)</h6>
-            <h6>Uwdn=@Model.GetU()[1] W/(m&sup2;.&deg;C)</h6>
-            switch (Model.Material)
+    <div class="col-md-5">
+        <hr />
+        <div class="">
+            <h4>Dados da Janela</h4>
+
+            <form asp-controller="Home" asp-action="IndexPT" method="post">
+                <label asp-for="Material">Material:</label>
+                <select asp-for="Material">
+                    <option value="Madeira">Madeira</option>
+                    <option value="Metal">Metal</option>
+                    <option value="MetalCorte">Metal com Corte Térmico</option>
+                    <option value="Pvc">PVC</option>
+                </select><br>
+
+                <label>Tipo de Abertura:</label>
+                <input type="radio" asp-for="Abertura" value="Fixa" required>
+                <label for="fixa">Fixa</label>
+                <input type="radio" asp-for="Abertura" value="Giratoria" required>
+                <label for="giratoria">Giratória</label>
+                <input type="radio" asp-for="Abertura" value="Correr" required>
+                <label for="correr">Correr</label><br>
+
+                <label>Tipo de Vidro:</label>
+                <input type="radio" asp-for="IsDouble" value="false">
+                <label for="simples">Simples</label>
+                <input type="radio" asp-for="IsDouble" value="true" required>
+                <label for="duplo">Duplo</label><br>
+
+                <label for="CaixaAr">Caixa de Ar (6 a 16mm):</label>
+                <input asp-for="CaixaAr" type="range" id="ar" name="CaixaAr" min="6" max="16">
+                <label for="CaixaAr" id="arValue"></label> <br>
+
+                <label asp-for="IsLowE">Vidro de baixa Emissividade?</label>
+                <input type="checkbox" asp-for="IsLowE"><br>
+
+                <label asp-for="Oclusao">Oclusão Nocturna:</label>
+                <select asp-for="Oclusao">
+                    <option value="Nenhuma">Não existente</option>
+                    <option value="Cortina">Cortina Interior Opaca</option>
+                    <option value="PermElev">Exterior c/ Permeabilidade Elevada</option>
+                    <option value="PermBaixa">Exterior c/ Permeabilidade Baixa</option>
+                </select><br>
+
+                <input class="btn btn-success" type="submit" value="Submeter">
+
+            </form>
+
+        </div>
+        <hr />
+        <div class="">
+            @if (Model != null)
             {
-                case "Metal":
-                    <h6 class="text-muted">Material: Metal</h6>
-                    break;
-                case "Madeira":
-                    <h6 class="text-muted">Material: Madeira</h6>
-                    break;
-                case "MetalCorte":
-                    <h6 class="text-muted">Material: Metal c/ Corte Térmico</h6>
-                    break;
-                case "Pvc":
-                    <h6 class="text-muted">Material: PVC</h6>
-                    break;
-                default:
-                    break;
-            }
-            <h6 class="text-muted">Abertura: @Model.Abertura</h6>
-            if (Model.IsDouble)
-            {
-                <h6 class="text-muted">Vidro Duplo</h6>
+                <h4>Resultados</h4>
+                <h6>Uw=@Model.GetU()[0] W/(m&sup2;.&deg;C)</h6>
+                <h6>Uwdn=@Model.GetU()[1] W/(m&sup2;.&deg;C)</h6>
+                switch (Model.Material)
+                {
+                    case "Metal":
+                        <h6 class="text-muted">Material: Metal</h6>
+                        break;
+                    case "Madeira":
+                        <h6 class="text-muted">Material: Madeira</h6>
+                        break;
+                    case "MetalCorte":
+                        <h6 class="text-muted">Material: Metal c/ Corte Térmico</h6>
+                        break;
+                    case "Pvc":
+                        <h6 class="text-muted">Material: PVC</h6>
+                        break;
+                    default:
+                        break;
+                }
+                <h6 class="text-muted">Abertura: @Model.Abertura</h6>
+                if (Model.IsDouble)
+                {
+                    <h6 class="text-muted">Vidro Duplo</h6>
+                }
+                else
+                {
+                    <h6 class="text-muted">Vidro Simples</h6>
+                }
+                <h6 class="text-muted">Caixa de ar: @Model.CaixaAr mm</h6>
+                if (Model.IsLowE)
+                {
+                    <h6 class="text-muted">Baixa Emissividade: Sim</h6>
+                }
+                else
+                {
+                    <h6 class="text-muted">Baixa Emissividade: Não</h6>
+                }
+                switch (Model.Oclusao)
+                {
+                    case "Cortina":
+                        <h6 class="text-muted">Oclusão noturna: Cortina Interior</h6>
+                        break;
+                    case "PermElev":
+                        <h6 class="text-muted">Oclusão noturna: Exterior c/ Permeabilidade Elevada</h6>
+                        break;
+                    case "PermBaixa":
+                        <h6 class="text-muted">Oclusão noturna: Exterior c/ Permeabilidade Baixa</h6>
+                        break;
+                    default:
+                        <h6 class="text-muted">Oclusão noturna: Nenhuma</h6>
+                        break;
+                }
+
+
             }
             else
             {
-                <h6 class="text-muted">Vidro Simples</h6>
+                <p class="muted">Preencher o formulário acima</p>
             }
-            <h6 class="text-muted">Caixa de ar: @Model.CaixaAr mm</h6>
-            if (Model.IsLowE)
-            {
-                <h6 class="text-muted">Baixa Emissividade: Sim</h6>
-            }
-            else
-            {
-                <h6 class="text-muted">Baixa Emissividade: Não</h6>
-            }
-            switch (Model.Oclusao)
-            {
-                case "Cortina":
-                    <h6 class="text-muted">Oclusão noturna: Cortina Interior</h6>
-                    break;
-                case "PermElev":
-                    <h6 class="text-muted">Oclusão noturna: Exterior c/ Permeabilidade Elevada</h6>
-                    break;
-                case "PermBaixa":
-                    <h6 class="text-muted">Oclusão noturna: Exterior c/ Permeabilidade Baixa</h6>
-                    break;
-                default:
-                    <h6 class="text-muted">Oclusão noturna: Nenhuma</h6>
-                    break;
-            }
-
-
-        }
-        else
-        {
-            <p class="muted">Preencher o formulário acima</p>
-        }
+        </div>
+        <hr />
+        <div class="">
+            <br />
+            <p class="h4">Notas</p>
+            <ul>
+                <li>Quando é selectionado Vidro Simples, a espessura da caixa de ar é ignorada, bem como a opção de baixa emissividade</li>
+                <li>Quando é selectionada Baixa Emissividade (Low E), é assumida caixa de ar de 16mm</li>
+            </ul>
+        </div>
     </div>
-    <hr />
-    <div class="">
-        <br />
-        <p class="h4">Notas</p>
-        <ul>
-            <li>Quando é selectionado Vidro Simples, a espessura da caixa de ar é ignorada, bem como a opção de baixa emissividade</li>
-            <li>Quando é selectionada Baixa Emissividade (Low E), é assumida caixa de ar de 16mm</li>
-        </ul>
+    <div class="col-md-3">
+
     </div>
 </div>

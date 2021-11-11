@@ -3,149 +3,158 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<div class="">
-    <div class="text-center">
-        <img src="~/img/glasscalc.png" class="img-fluid" alt="GlassCalc">
-        @*<h1 class="display-4">GlassCalc</h1>*@
-        <h6>Calculate window pane thermal transmission coeficients</h6>
-        <p class="text-muted">(Uw and Uwdn, using LINQ and the ITE50 tables method)</p>
-        <hr />
-    </div>
-    <div class="">
-        <h4>Window Properties</h4>
+<div class="text-center">
+    <img src="~/img/glasscalc.png" class="img-fluid" alt="GlassCalc">
+    @*<h1 class="display-4">GlassCalc</h1>*@
+    <h6>Calculate window pane thermal transmission coeficients</h6>
+    <p class="text-muted">(Uw and Uwdn, using LINQ and the ITE50 tables method)</p>
     
-        <form asp-controller="Home" asp-action="Index" method="post">
-            <label asp-for="Material">Material:</label>
-            <select asp-for="Material">
-                <option value="Madeira">Wood</option>
-                <option value="Metal">Metal</option>
-                <option value="MetalCorte">Metal w/ Thermal Break</option>
-                <option value="Pvc">PVC</option>
-            </select><br>
-
-            <label>Opening Type:</label>
-            <input type="radio" asp-for="Abertura" value="Fixa" required>
-            <label for="fixa">Fixed</label>
-            <input type="radio" asp-for="Abertura" value="Giratoria" required>
-            <label for="giratoria">Hinged</label>
-            <input type="radio" asp-for="Abertura" value="Correr" required>
-            <label for="correr">Sliding</label><br>
-
-            <label>Tipo de Vidro:</label>
-            <input type="radio" asp-for="IsDouble" value="false">
-            <label for="simples">Simple</label>
-            <input type="radio" asp-for="IsDouble" value="true" required>
-            <label for="duplo">Double</label><br>
-
-            <label for="CaixaAr">Air Gap (6 a 16mm):</label>
-            <input asp-for="CaixaAr" type="range" id="ar" name="CaixaAr" min="6" max="16">
-            <label for="CaixaAr" id="arValue"></label> <br>
-
-            <label asp-for="IsLowE">Low emissivity glass?</label>
-            <input type="checkbox" asp-for="IsLowE"><br>
-
-            <label asp-for="Oclusao">Night shading:</label>
-            <select asp-for="Oclusao">
-                <option value="Nenhuma">None</option>
-                <option value="Cortina">Interior Opaque Blinds</option>
-                <option value="PermElev">Exterior w/ High Permeability</option>
-                <option value="PermBaixa">Exterior w/ Low Permeability</option>
-            </select><br>
-
-            <input type="submit">
-
-        </form>
+</div>
+<div class="row">
+    <div class="col-md-4">
 
     </div>
-    <hr />
-    <div class="">
-        @if (Model != null)
-        {
-            <h4>Results</h4>
-            <h6>Uw=@Model.GetU()[0] W/(m&sup2;.&deg;C)</h6>
-            <h6>Uwdn=@Model.GetU()[1] W/(m&sup2;.&deg;C)</h6>
-            switch (Model.Material)
-            {
-                case "Metal":
-                    <h6 class="text-muted">Material: Metal</h6>
-                    break;
-                case "Madeira":
-                    <h6 class="text-muted">Material: Wood</h6>
-                    break;
-                case "MetalCorte":
-                    <h6 class="text-muted">Material: Metal w/ Thermal Break</h6>
-                    break;
-                case "Pvc":
-                    <h6 class="text-muted">Material: PVC</h6>
-                    break;
-                default:
-                    break;
-            }
+    <div class="col-md-5">
+        <hr />
+        <div class="">
+            <h4>Window Properties</h4>
 
-            
-            switch (Model.Abertura)
-            {
-                case "Correr":
-                    <h6 class="text-muted">Opening: Sliding</h6>
-                    break;
-                case "Giratoria":
-                    <h6 class="text-muted">Opening: Hinged</h6>
-                    break;
-                case "Fixa":
-                    <h6 class="text-muted">Opening: Fixed</h6>
-                    break;
-                
-                default:
-                    break;
-            }
+            <form asp-controller="Home" asp-action="Index" method="post">
+                <label asp-for="Material">Material:</label>
+                <select asp-for="Material">
+                    <option value="Madeira">Wood</option>
+                    <option value="Metal">Metal</option>
+                    <option value="MetalCorte">Metal w/ Thermal Break</option>
+                    <option value="Pvc">PVC</option>
+                </select><br>
 
-            if (Model.IsDouble)
+                <label>Opening Type:</label>
+                <input type="radio" asp-for="Abertura" value="Fixa" required>
+                <label for="fixa">Fixed</label>
+                <input type="radio" asp-for="Abertura" value="Giratoria" required>
+                <label for="giratoria">Hinged</label>
+                <input type="radio" asp-for="Abertura" value="Correr" required>
+                <label for="correr">Sliding</label><br>
+
+                <label>Tipo de Vidro:</label>
+                <input type="radio" asp-for="IsDouble" value="false">
+                <label for="simples">Simple</label>
+                <input type="radio" asp-for="IsDouble" value="true" required>
+                <label for="duplo">Double</label><br>
+
+                <label for="CaixaAr">Air Gap (6 a 16mm):</label>
+                <input asp-for="CaixaAr" type="range" id="ar" name="CaixaAr" min="6" max="16">
+                <label for="CaixaAr" id="arValue"></label> <br>
+
+                <label asp-for="IsLowE">Low emissivity glass?</label>
+                <input type="checkbox" asp-for="IsLowE"><br>
+
+                <label asp-for="Oclusao">Night shading:</label>
+                <select asp-for="Oclusao">
+                    <option value="Nenhuma">None</option>
+                    <option value="Cortina">Interior Opaque Blinds</option>
+                    <option value="PermElev">Exterior w/ High Permeability</option>
+                    <option value="PermBaixa">Exterior w/ Low Permeability</option>
+                </select><br>
+
+                <input class="btn btn-success" type="submit">
+
+            </form>
+
+        </div>
+        <hr />
+        <div class="">
+            @if (Model != null)
             {
-                <h6 class="text-muted">Double Glass</h6>
+                <h4>Results</h4>
+                <h6>Uw=@Model.GetU()[0] W/(m&sup2;.&deg;C)</h6>
+                <h6>Uwdn=@Model.GetU()[1] W/(m&sup2;.&deg;C)</h6>
+                switch (Model.Material)
+                {
+                    case "Metal":
+                        <h6 class="text-muted">Material: Metal</h6>
+                        break;
+                    case "Madeira":
+                        <h6 class="text-muted">Material: Wood</h6>
+                        break;
+                    case "MetalCorte":
+                        <h6 class="text-muted">Material: Metal w/ Thermal Break</h6>
+                        break;
+                    case "Pvc":
+                        <h6 class="text-muted">Material: PVC</h6>
+                        break;
+                    default:
+                        break;
+                }
+
+
+                switch (Model.Abertura)
+                {
+                    case "Correr":
+                        <h6 class="text-muted">Opening: Sliding</h6>
+                        break;
+                    case "Giratoria":
+                        <h6 class="text-muted">Opening: Hinged</h6>
+                        break;
+                    case "Fixa":
+                        <h6 class="text-muted">Opening: Fixed</h6>
+                        break;
+
+                    default:
+                        break;
+                }
+
+                if (Model.IsDouble)
+                {
+                    <h6 class="text-muted">Double Glass</h6>
+                }
+                else
+                {
+                    <h6 class="text-muted">Simple Glass</h6>
+                }
+                <h6 class="text-muted">Air Gap: @Model.CaixaAr mm</h6>
+                if (Model.IsLowE)
+                {
+                    <h6 class="text-muted">Low Emissivity: Yes</h6>
+                }
+                else
+                {
+                    <h6 class="text-muted">Low Emissivity: No</h6>
+                }
+                switch (Model.Oclusao)
+                {
+                    case "Cortina":
+                        <h6 class="text-muted">Night shading: Interior Opaque Blinds</h6>
+                        break;
+                    case "PermElev":
+                        <h6 class="text-muted">Night shading: Exterior w/ High Permeability</h6>
+                        break;
+                    case "PermBaixa":
+                        <h6 class="text-muted">Night shading: Exterior w/ Low Permeability</h6>
+                        break;
+                    default:
+                        <h6 class="text-muted">Night shading: None</h6>
+                        break;
+                }
+
+
             }
             else
             {
-                <h6 class="text-muted">Simple Glass</h6>
+                <p class="muted">Fill the form above</p>
             }
-            <h6 class="text-muted">Air Gap: @Model.CaixaAr mm</h6>
-            if (Model.IsLowE)
-            {
-                <h6 class="text-muted">Low Emissivity: Yes</h6>
-            }
-            else
-            {
-                <h6 class="text-muted">Low Emissivity: No</h6>
-            }
-            switch (Model.Oclusao)
-            {
-                case "Cortina":
-                    <h6 class="text-muted">Night shading: Interior Opaque Blinds</h6>
-                    break;
-                case "PermElev":
-                    <h6 class="text-muted">Night shading: Exterior w/ High Permeability</h6>
-                    break;
-                case "PermBaixa":
-                    <h6 class="text-muted">Night shading: Exterior w/ Low Permeability</h6>
-                    break;
-                default:
-                    <h6 class="text-muted">Night shading: None</h6>
-                    break;
-            }
-
-
-        }
-        else
-        {
-            <p class="muted">Fill the form above</p>
-        }
+        </div>
+        <hr />
+        <div class="">
+            <br />
+            <p class="h4">Notes</p>
+            <ul>
+                <li>When simple glass is selected, the thickness of the air gap is ignored, as well as the low emissivity option</li>
+                <li>When low Emissivity is selected (Low E), it is assumed an air gap of 16mm</li>
+            </ul>
+        </div>
     </div>
-    <hr />
-    <div class="">
-        <br />
-        <p class="h4">Notes</p>
-        <ul>
-            <li>When simple glass is selected, the thickness of the air gap is ignored, as well as the low emissivity option</li>
-            <li>When low Emissivity is selected (Low E), it is assumed an air gap of 16mm</li>
-        </ul>
+    <div class="col-md-3">
+
     </div>
 </div>
